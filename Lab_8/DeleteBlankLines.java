@@ -26,37 +26,38 @@ public class DeleteBlankLines
     	// method. After trimming, check the size of the string to see if it is > 0 (or use isEmpty() method)
     	// If it is > 0, add the line to the lines array list
       
+      try {
+        Scanner console = new Scanner(new File(fileName));
+
+        while (console.hasNextLine()) {
+          String nextLine = console.nextLine();
+          if (nextLine.trim().length() > 0) lines.add(nextLine);
+        }
+
+        console.close();
+      } 
       
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
+      catch (Exception e) {
+        System.out.println(e.getMessage());
+      }
+
       //-----------------End here. Please do not remove this comment. Reminder: no changes outside the todo regions.
       
       //-----------Start below here. To do: approximate lines of code = 7
       // In a try {..} block, create a file for writing using the PrintWriter class and the same parameter fileName
     	// as above. Then output the lines in the array list to this file. Don't forget to close the file!!
       
+      try {
+        PrintWriter newFile = new PrintWriter(fileName);
+
+        for (String s:lines) if (!lines.get(lines.size()-1).equals(s)) newFile.printf("%s%n", s); else newFile.printf("%s", s);
+
+        newFile.close();
+      } 
       
-      
-      
-      
-      
-      
-      
-      
-      
-      
+      catch (Exception e) {
+        System.out.println(e.getMessage());
+      }
       
       
       //-----------------End here. Please do not remove this comment. Reminder: no changes outside the todo regions.

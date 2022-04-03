@@ -18,7 +18,7 @@ public class DataAnalyzer
 	 */
 	//-----------Start below here. To do: approximate lines of code = 1
 	// Make readFile() tell the compiler it will not handle any thrown checked exceptions
-	public static double[] readFile(String filename) throws IOException
+	public static double[] readFile(String filename) throws IOException, FileNotFoundException
 	//-----------------End here. Please do not remove this comment. Reminder: no changes outside the todo regions.
 	{   
 		double[] values;
@@ -54,18 +54,17 @@ public class DataAnalyzer
 			catch (FileNotFoundException e) {
 				System.out.println("File not found: "+e.getMessage());
 			}
-			
-			//System.exit(0);
+
 			// For NoSuchElementException, print "File contents contain bad data"
 			catch (NoSuchElementException e) {
 				System.out.println("File contents contain bad data");
 			}
-
+			
 			// For IOException print out the message stored in the exception object (Hint: use the getMessage() method)
 			catch (IOException e) {
 				System.out.println(e.getMessage());
 			}
-
+			
 			//-----------------End here. Please do not remove this comment. Reminder: no changes outside the todo regions.
 		}
 		System.out.println("Expected:");

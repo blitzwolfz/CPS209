@@ -23,11 +23,16 @@ public class FindCorruptData
     // Hint: use try{..} catch{..} such that you catch any NumberFormatException and print out the bad double number
     // making use of the getMessage() method of the exception class to print the corrupt number string.
 
-		for (String n:console) {
+		for (int i = 0; i < numDoubles; i++) {
+			try {
+				String nextDouble = console.next();
+				Double.parseDouble(nextDouble);
+			}
 
+			catch (NumberFormatException e) {
+				System.out.printf("Corrupt Double Number: %s%n", e.getMessage());
+			}
 		}
-		
-		
 		//-----------------End here. Please do not remove this comment. Reminder: no changes outside the todo regions.
 	}
 
